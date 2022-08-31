@@ -1,0 +1,31 @@
+body {
+    background-color: rgba(24, 111, 113, 0.41);
+}
+#title{
+    text-align: center;
+}
+
+.color{
+    width: 60px;
+    height: 60px;
+    border: solid 1px black;
+    display: inline-block;
+    border-radius: 10px;
+    
+    
+    
+}
+
+#color-palette{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#button-random-color{
+    margin-left: 20px; 
+    height: 60px;
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
+}
