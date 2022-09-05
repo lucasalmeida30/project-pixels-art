@@ -11,7 +11,7 @@ function gerarCorAleatoria() {
     const letters = '0123456789ABCDEF';
     let color = '#';
     for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+        color += letters[Math.floor(Math.random() * letters.length)];
     }
     return color;
 }
@@ -21,19 +21,40 @@ let button = document.getElementById('button-random-color')
 button.addEventListener('click', gerarPaleta)
 
 function gerarPaleta() {
-    let array = [];
+    let arrayCores = [];
     for (let index = 1; index < corPaleta.length; index += 1) {
         let corAleatorio = corPaleta[index].style.backgroundColor = gerarCorAleatoria()
-        array.push(corAleatorio);
+        arrayCores.push(corAleatorio);
     }
     localStorage.clear()
-    const coresString = JSON.stringify(array)
+    const coresString = JSON.stringify(arrayCores)
     localStorage.setItem('colorPalette', coresString)
-    console.log(coresString)
+
 }
 
+function manterCores() {
+    const teste = localStorage.getItem('colorPalette');
+    const teste2 = JSON.parse(teste);
+    corPaleta[1].style.backgroundColor = teste2[0]
+    corPaleta[2].style.backgroundColor = teste2[1]
+    corPaleta[3].style.backgroundColor = teste2[2]
+}
+manterCores()
 
 
+
+// function pixel() {
+//     let pixel = document.getElementsByClassName('pixel');
+
+//     for (let index = 0; index < pixel.length; index += 1) {
+//         pixel[index].addEventListener('click', () => {
+            
+
+//         })
+//     }
+// }
+
+// pixel()
 
 
 
