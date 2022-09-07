@@ -70,18 +70,11 @@ function teste3(event) {
 }
 
 
-
-
-
-
-
-
 let limparPixels = document.getElementById('clear-board')
-
-function limpar (){
-    
-    for(let index = 0; index < pixel.length; index += 1){
-        pixel[index].style.backgroundColor = 'white'
+limparPixels.addEventListener('click', limpar)
+function limpar() {
+    for (let index = 0; index < pixels.length; index += 1){
+        pixels[index].style.backgroundColor = 'white'
     }
 }
 
