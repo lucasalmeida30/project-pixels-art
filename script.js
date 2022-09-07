@@ -1,8 +1,9 @@
 // As 4 primeiras cores da paleta
-// let corPreta = document.querySelector('.selected')
+
 let corPaleta = document.getElementsByClassName('color')
 let arrayTeste = []
 arrayTeste.push(corPaleta)
+corPaleta[0].style.backgroundColor = 'black'
 corPaleta[1].style.backgroundColor = 'blue'
 corPaleta[2].style.backgroundColor = 'red'
 corPaleta[3].style.backgroundColor = 'green'
@@ -45,15 +46,27 @@ function manterCores() {
 }
 manterCores()
 
-for(let index = 0; index < corPaleta.length; index += 1){
-    corPaleta[index].addEventListener('click', pintarPixel)
+for (let index = 0; index < corPaleta.length; index += 1) {
+    corPaleta[index].addEventListener('click', classSelected)
 }
 
-function pintarPixel (clicked){
-     let event = clicked.target
-     let selected = document.querySelector('.selected');
-     selected.classList.remove('selected')
-     event.classList.add('selected')
+function classSelected(clicked) {
+    let event = clicked.target
+    let selected = document.querySelector('.selected');
+    selected.classList.remove('selected')
+    event.classList.add('selected')
+}
+const select = document.getElementsByClassName('selected');
+const pixels = document.querySelectorAll('.pixel');
+for (let index = 0; index < pixels.length; index += 1) {
+    pixels[index].addEventListener('click', teste3);
+}
+
+function teste3(event) {
+
+    let tgr = event.target;
+    tgr.style.backgroundColor = select[0].style.backgroundColor;
+
 }
 
 
@@ -62,20 +75,15 @@ function pintarPixel (clicked){
 
 
 
-// let limparPixels = document.getElementById('clear-board')
 
-// limparPixels.addEventListener('click', () => {
-//     for(let index = 0; index < pixel.length; index += 1){
-//         pixel[index].style.backgroundColor = 'white'
-//     }
-// })
+let limparPixels = document.getElementById('clear-board')
 
-// // function limpar (){
-// //     // let pixel2 = document.getElementsByClassName('pixel');
-// //     for(let index = 0; index < pixel.length; index += 1){
-// //         pixel[index].style.backgroundColor = 'white'
-// //     }
-// // }
+function limpar (){
+    
+    for(let index = 0; index < pixel.length; index += 1){
+        pixel[index].style.backgroundColor = 'white'
+    }
+}
 
 
 
