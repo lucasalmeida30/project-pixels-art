@@ -45,25 +45,39 @@ function manterCores() {
 }
 manterCores()
 
-
-function pixel() {
-    let pixel = document.getElementsByClassName('pixel');
-
-    for (let index = 0; index < pixel.length; index += 1) {
-        pixel[index].addEventListener('click', () => {
-             pixel[index].className = ('selected')
-
-        })
-    }
+for(let index = 0; index < corPaleta.length; index += 1){
+    corPaleta[index].addEventListener('click', pintarPixel)
 }
 
-pixel()
+function pintarPixel (clicked){
+     let event = clicked.target
+     let selected = document.querySelector('.selected');
+     selected.classList.remove('selected')
+     event.classList.add('selected')
+}
 
-// let limparPixels = document.getElementById('zerarPixels')
 
-// limparPixels.addEventListener('click', pixel)
 
-// pixel('pixel')
+
+
+
+
+// let limparPixels = document.getElementById('clear-board')
+
+// limparPixels.addEventListener('click', () => {
+//     for(let index = 0; index < pixel.length; index += 1){
+//         pixel[index].style.backgroundColor = 'white'
+//     }
+// })
+
+// // function limpar (){
+// //     // let pixel2 = document.getElementsByClassName('pixel');
+// //     for(let index = 0; index < pixel.length; index += 1){
+// //         pixel[index].style.backgroundColor = 'white'
+// //     }
+// // }
+
+
 
 
 
