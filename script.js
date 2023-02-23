@@ -46,6 +46,23 @@ function manterCores() {
 }
 manterCores()
 
+
+// let classPixel = document.getElementsByClassName('pixel')
+function createPixel (){
+    let containerPixel = document.getElementById('pixel-board')
+    for(let i = 0; i < 49; i += 1){
+        let divPixel = document.createElement('div')
+        divPixel.className = 'pixel'
+        containerPixel.appendChild(divPixel)
+    }
+}
+createPixel()
+
+
+
+
+
+
 for (let index = 0; index < corPaleta.length; index += 1) {
     corPaleta[index].addEventListener('click', classSelected)
 }
@@ -77,6 +94,34 @@ function limpar() {
         pixels[index].style.backgroundColor = 'white'
     }
 }
+
+function salvarDesenho (){
+    for(let index = 0; index < pixels.length; index += 1){
+        let desenho = []
+        pixels[index].addEventListener('click', function (){
+            desenho = pixels[index].style.backgroundColor;
+            const art = JSON.stringify(desenho)
+            localStorage.setItem('pixelBoard', art)
+        })
+
+    }
+}
+
+salvarDesenho()
+
+window.onload = () => {
+    
+    let corLocal = localStorage.getItem('pixelBoard')
+    let corArray = JSON.parse(corLocal)
+    for(let index = 0; index < pixels.length; index += 1){
+            
+        }
+    }
+    
+
+
+    
+
 
 
 
